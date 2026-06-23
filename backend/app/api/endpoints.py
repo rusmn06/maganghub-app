@@ -69,19 +69,19 @@ def _evaluate_model(model, df: pd.DataFrame, text_col: str, label_col: str) -> d
 @router.get("/evaluate/sentiment")
 def evaluate_sentiment():
     df = pd.read_csv(settings.DATASET_PATH)
-    return _evaluate_model(sentiment_model, df, text_col="model_text", label_col="sentiment")
+    return _evaluate_model(sentiment_model, df, text_col="final_text", label_col="sentiment")
 
 
 @router.get("/evaluate/category")
 def evaluate_category():
     df = pd.read_csv(settings.DATASET_PATH)
-    return _evaluate_model(category_model, df, text_col="model_text", label_col="feedback_category")
+    return _evaluate_model(category_model, df, text_col="final_text", label_col="feedback_category")
 
 
 @router.get("/evaluate/all")
 def evaluate_all():
     df = pd.read_csv(settings.DATASET_PATH)
     return {
-        "sentiment": _evaluate_model(sentiment_model, df, text_col="model_text", label_col="sentiment"),
-        "category": _evaluate_model(category_model, df, text_col="model_text", label_col="feedback_category"),
+        "sentiment": _evaluate_model(sentiment_model, df, text_col="final_text", label_col="sentiment"),
+        "category": _evaluate_model(category_model, df, text_col="final_text", label_col="feedback_category"),
     }

@@ -30,11 +30,11 @@ class Settings(BaseSettings):
 
     # Folder models ada di backend/app/models/ (sejajar sama main.py)
     MODEL_DIR: Path = APP_DIR / "models"
-    SENTIMENT_MODEL_PATH: Path = MODEL_DIR / "best_sentiment_feedback_model_fixed.pkl"
-    CATEGORY_MODEL_PATH: Path = MODEL_DIR / "best_category_feedback_model_fixed.pkl"
+    SENTIMENT_MODEL_PATH: Path = MODEL_DIR / "best_sentiment_feedback_model.pkl"
+    CATEGORY_MODEL_PATH: Path = MODEL_DIR / "best_category_feedback_model.pkl"
 
     # Dataset CSV juga ada di folder models/
-    DATASET_PATH: Path = MODEL_DIR / "dataset_maganghub_category_fixed.csv"
+    DATASET_PATH: Path = MODEL_DIR / "dataset_maganghub_kategori_baru.csv"
 
     model_config = SettingsConfigDict(
         env_file=".env",
